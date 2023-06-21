@@ -1,0 +1,5 @@
+<div *ngFor='let user of personalList | async'>
+    <h5>{{ user.name }}</h5>
+    <p>{{ user.email }}</p>
+    <button mat-raised-button color="primary" type='button' [routerLink]="['user', user.id]">Details</button>
+</div>

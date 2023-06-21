@@ -1,0 +1,33 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-toolbar>
+    <!-- <button mat-icon-button (click)="drawer.toggle()" aria-label="sidenav menu">
+    <mat-icon>menu</mat-icon>
+    </button> -->
+    <a routerLink="/admin">My app</a>
+
+    <span class="example-spacer"></span>
+
+    <div class='flex gap-4'>
+      <button mat-icon-button routerLink="contacts" class='flex items-center gap-2'>
+        <mat-icon>supervisor_account</mat-icon>
+        <span>Contacts</span>
+      </button>
+      <button mat-icon-button class="example-icon favorite-icon flex items-center gap-2" aria-label="Example icon-button with heart icon">
+        <span>Favorites</span>  
+        <mat-icon>favorite</mat-icon>
+      </button>
+  
+      <button type='button' (click)="logout()" class='flex items-center gap-2'>
+        <span>Logout</span>
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+  </mat-drawer>
+  <mat-progress-bar mode="buffer" *ngIf='isLoading | async'></mat-progress-bar>
+  
+</mat-drawer-container>

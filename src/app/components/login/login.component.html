@@ -1,0 +1,32 @@
+<div class='h-full flex'>
+  <mat-card class='w-[350px] m-auto'>
+    <mat-card-content>
+      <form [formGroup]='form' (ngSubmit)="onSubmit()" class='flex flex-col mb-10'>
+        <h1 class='text-center text-slate-600 font-medium'>Login</h1>
+        <mat-form-field class='pt-5 mb-2'>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName='username' required>
+          <mat-error *ngIf="form.get('username')?.hasError">
+            Please provide a valid email address
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class='mb-2'>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName='password' placeholder="Password" required autocomplete='true' [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" type='button'>
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.get('password')?.hasError">
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]='form.invalid'>Login</button>
+      </form>
+  
+      <div class='text-center text-slate-500'>
+        Don't have an account?
+        <a routerLink="/sign-up" class='underline'>Sign-up</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
